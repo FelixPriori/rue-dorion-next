@@ -1,0 +1,28 @@
+.section {
+	position: relative;
+	padding: var(--padding-y) var(--padding-x);
+	background-color: var(--background);
+	z-index: 10;
+
+	&.alt {
+		background-color: var(--white);
+	}
+
+	&.no-padding-top {
+		padding-top: 0;
+	}
+
+	&__title {
+		text-transform: uppercase;
+		text-align: center;
+	}
+
+	&__separator {
+		background-color: var(--black);
+		height: 0.2rem;
+		position: relative;
+		width: 2.2rem;
+		display: block;
+		margin: var(--separator-margin);
+	}
+}

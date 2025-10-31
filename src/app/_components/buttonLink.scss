@@ -1,0 +1,53 @@
+@use 'sass:color';
+
+.dorion-button-link {
+	border-radius: 0.5rem;
+	transition: all 0.3s;
+	font-weight: bold;
+	text-transform: uppercase;
+	letter-spacing: var(--space-xsm);
+	padding: 0.5rem 1rem;
+	white-space: nowrap;
+	display: block;
+	text-align: center;
+	width: fit-content;
+	text-decoration: none;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&.dark {
+		color: var(--white);
+		background-color: var(--gray-shade-1);
+		border: 0.2rem solid var(--gray-shade-1);
+
+		&:hover {
+			color: var(--white);
+			background-color: color.adjust(#474747, $lightness: 20%);
+			border: 0.2rem solid color.adjust(#474747, $lightness: 20%);
+		}
+	}
+
+	&.dark-outline {
+		color: var(--gray-shade-1);
+		background-color: transparent;
+		border: 0.2rem solid var(--gray-shade-1);
+
+		&:hover {
+			color: var(--white);
+			background-color: var(--gray-shade-1);
+		}
+	}
+
+	&.light-outline {
+		color: var(--white);
+		background-color: transparent;
+		border: 0.1rem solid var(--white);
+
+		&:hover {
+			color: var(--footer-content-bg-color);
+			background-color: var(--white);
+		}
+	}
+}

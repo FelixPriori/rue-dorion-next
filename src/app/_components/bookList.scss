@@ -1,0 +1,14 @@
+.book-list {
+	list-style: none;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, 30rem);
+	justify-content: center;
+	justify-items: center;
+	grid-gap: 7rem 0;
+	margin: 7rem 0;
+
+	@media (max-width: 1024px) {
+		grid-template-columns: repeat(auto-fit, 25rem);
+		grid-gap: 4rem 0;
+	}
+}

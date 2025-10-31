@@ -1,7 +1,17 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
-  /* config options here */
-};
+	/* config options here */
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'images.ctfassets.net',
+				port: '',
+				pathname: `/${process.env.SPACE_ID}/**`,
+			},
+		],
+	},
+}
 
-export default nextConfig;
+export default nextConfig

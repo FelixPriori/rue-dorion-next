@@ -1,0 +1,33 @@
+.book-cover {
+	position: relative;
+	height: 27.5rem;
+	width: 20rem;
+	box-shadow: 2.5rem 2.5rem 2.5rem rgba(#000, 0.25);
+	transition: all 0.3s;
+	text-align: center;
+
+	a {
+		display: block;
+		height: 100%;
+		width: 100%;
+
+		img {
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	&:hover {
+		transform: scale(1.1);
+		box-shadow: 2rem 3rem 4rem rgba(#000, 0.5);
+		cursor: pointer;
+	}
+
+	&__fallback {
+		font-size: 14px;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}
