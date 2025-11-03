@@ -9,6 +9,9 @@ import './page.scss'
 import Link from 'next/link'
 import { FaArrowLeft } from 'react-icons/fa'
 import BookDetails from '../_components/BookDetails'
+import PressArticle from '../_components/PressArticle'
+import BookList from '../_components/BookList'
+import { uniqBy } from 'lodash'
 
 const client = createClient({
 	space: process.env.SPACE_ID!,
@@ -58,6 +61,8 @@ export default async function BookPage({
 	const book = await getContentfulBook(slug)
 	const bookFields = book.fields
 
+	const uniqueBooks = uniqBy(bookFields?.book, 'fields.slug').slice(0, 4)
+
 	return (
 		<Layout>
 			<Section className="main" noPaddingTop>
@@ -69,12 +74,10 @@ export default async function BookPage({
 					<BookDetails {...bookFields} />
 				</div>
 				<div className="main__presentation">
-					{/* {isDesktop && (
-            <div className="main__title-wrapper">
-              <h1 className="main__title">{contentfulBook?.title}</h1>
-              <h2 className="main__subtitle">{contentfulBook?.subtitle}</h2>
-            </div>
-          )} */}
+					<div className="main__title-wrapper">
+						<h1 className="main__title">{bookFields.title}</h1>
+						<h2 className="main__subtitle">{bookFields.subtitle}</h2>
+					</div>
 					<div className="main__presentation-content">
 						<div className="main__presentation-book">
 							{documentToReactComponents(bookFields.presentation)}
@@ -98,18 +101,27 @@ export default async function BookPage({
 					</div>
 				</div>
 
-				{/* {contentfulBook?.pressArticles?.length > 0 && (
-          <div className="main__press">
-            <>
-              <h2 className="main__title ">Recensions et articles de presse</h2>
-              <div className="separator"></div>
-            </>
-            {contentfulBook?.pressArticles?.map((press) => (
-              <PressArticle key={press.id} {...press} />
-            ))}
-          </div>
-        )} */}
+				{bookFields?.pressArticles && bookFields?.pressArticles.length > 0 && (
+					<div className="main__press">
+						<>
+							<h2 className="main__title ">Recensions et articles de presse</h2>
+							<div className="separator"></div>
+						</>
+						{bookFields?.pressArticles?.map(press => (
+							<PressArticle key={press.sys.id} {...press.fields} />
+						))}
+					</div>
+				)}
 			</Section>
+			{uniqueBooks.length > 0 && (
+				<Section
+					noPaddingTop
+					className="more"
+					title="Également dans notre catalogue"
+				>
+					<BookList suggested books={uniqueBooks} />
+				</Section>
+			)}
 		</Layout>
 	)
 }

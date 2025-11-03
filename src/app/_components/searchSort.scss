@@ -1,0 +1,11 @@
+.search-sort {
+	@media (max-width: 1245px) {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+		gap: 3rem;
+	}
+}

@@ -83,6 +83,9 @@
 	}
 
 	@media (max-width: 1024px) {
+		&__title-wrapper {
+			display: none;
+		}
 		&__press {
 			grid-column: 1 / -1;
 			grid-row: 4 / -1;

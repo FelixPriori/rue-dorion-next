@@ -1,35 +1,42 @@
 .book-details {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+	list-style: none;
+	padding: 0;
+	margin: 0;
 
-  p {
-    margin: 0.5rem 0;
-  }
+	p {
+		margin: 0.5rem 0;
+	}
 
-  a {
-    margin: 3rem 0;
-  }
+	a {
+		margin: 3rem 0;
+	}
 
-  &__cover {
-    height: 30rem;
-    width: 22.5rem;
-    box-shadow: 2rem 2rem 2rem rgba(#000, 0.25);
-    margin-bottom: 3rem;
-  }
+	&__cover {
+		height: 30rem;
+		width: 22.5rem;
+		box-shadow: 2rem 2rem 2rem rgba(#000, 0.25);
+		margin-bottom: 3rem;
+	}
 
-  &__author {
-    font-size: var(--text-lg);
-  }
+	&__author {
+		font-size: var(--text-lg);
+	}
 
-  @media (max-width: 768px) {
-    display: flex;
-    flex-direction: column;
-    &__cover {
-      align-self: center;
-    }
-    &__author {
-      font-size: var(--text-xs);
-    }
-  }
+	@media (max-width: 768px) {
+		display: flex;
+		flex-direction: column;
+		&__cover {
+			align-self: center;
+		}
+		&__author {
+			font-size: var(--text-xs);
+		}
+	}
+}
+
+.main_title-wrapper {
+	display: none;
+	@media (max-width: 1024px) {
+		display: block;
+	}
 }

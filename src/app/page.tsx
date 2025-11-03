@@ -2,7 +2,7 @@ import { createClient } from 'contentful'
 import { BookQueryResult } from './_types/types'
 import Section from './_components/Section'
 import Layout from './_components/Layout'
-import BookList from './_components/BookList'
+import SearchSort from './_components/SearchSort'
 
 const client = createClient({
 	space: process.env.SPACE_ID!,
@@ -18,11 +18,7 @@ export default async function Home() {
 	const books = await getAllContentfulBooks()
 
 	return (
-		<Layout
-			withHero
-			withButtons
-			// scrollTopAnchor="#catalogue"
-		>
+		<Layout withHero withButtons scrollTopAnchor="#catalogue">
 			<Section sectionId="a-propos" className="about" title="À propos">
 				<p className="home__paragraph">
 					Fondées en 2012, les <strong>Éditions de la rue Dorion</strong>{' '}
@@ -36,13 +32,7 @@ export default async function Home() {
 				</p>
 			</Section>
 			<Section sectionId="catalogue" className="catalog" title="Catalogue" alt>
-				{/* <SearchSort
-					handleSearch={handleSearch}
-					handleSort={handleSort}
-					value={sortedBy}
-				/>
-				*/}
-				<BookList books={books.items} />
+				<SearchSort books={books.items} />
 			</Section>
 			<Section sectionId="declaration">
 				<p className="home__paragraph">

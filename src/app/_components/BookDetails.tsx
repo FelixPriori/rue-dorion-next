@@ -20,8 +20,6 @@ function BookDetails({
 	isbnEBook,
 	subtitle,
 }: BookItem['fields']) {
-	// const isDesktop = useMediaQuery('(min-width: 769px)')
-
 	const formatDate = () =>
 		new Intl.DateTimeFormat('fr', { dateStyle: 'long' }).format(new Date(date))
 
@@ -39,8 +37,6 @@ function BookDetails({
 					height={512}
 				/>
 			</li>
-			{/* {!isDesktop && (
-      )} */}
 			<div className="main__title-wrapper">
 				<h1 className="main__title">{title}</h1>
 				<h2 className="main__subtitle">{subtitle}</h2>
