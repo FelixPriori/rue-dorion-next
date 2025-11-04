@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "@contentful/rich-text-types": "^17.2.4",
+    "@netlify/plugin-nextjs": "^5.14.5",
     "@types/lodash": "^4.17.20",
     "@types/mailchimp__mailchimp_marketing": "^3.0.21",
     "@types/node": "^20",
