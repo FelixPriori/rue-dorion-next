@@ -10,7 +10,6 @@ export default function Hero({ children }: { children: ReactNode }) {
 					src="/hero-image.jpg"
 					alt="corniche"
 					className="corniche"
-					objectPosition="cover"
 					loading="eager"
 					width={2600}
 					height={1600}
