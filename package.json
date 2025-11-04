@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^16.1.5",
+    "@mailchimp/mailchimp_marketing": "^3.0.80",
+    "@types/mailchimp__mailchimp_marketing": "^3.0.21",
     "contentful": "^11.8.9",
     "lodash": "^4.17.21",
     "next": "16.0.1",
