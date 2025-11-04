@@ -1,7 +1,7 @@
 import { BookItem } from '../_types/types'
 import Image from 'next/image'
-import './bookDetails.scss'
 import ButtonLink from './ButtonLink'
+import './bookDetails.scss'
 
 function BookDetails({
 	cover,

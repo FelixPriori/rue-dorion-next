@@ -1,0 +1,27 @@
+.floating-input {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+
+	&__input {
+		padding: 0 1.6rem;
+		height: 4rem;
+	}
+
+	&__label {
+		position: absolute;
+		pointer-events: none;
+		transform: translate(0, 1.2rem) scale(1);
+		transform-origin: top left;
+		transition: 200ms cubic-bezier(0, 0, 0.2, 1) 0ms;
+		font-size: 1.6rem;
+		line-height: 1;
+		left: 1.6rem;
+	}
+
+	&:focus-within {
+		label {
+			transform: translate(0, 0.2rem) scale(0.6);
+		}
+	}
+}

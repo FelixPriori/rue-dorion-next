@@ -1,8 +1,8 @@
 import { FaFacebook, FaInstagram, FaMastodon, FaEnvelope } from 'react-icons/fa'
 import { FaBluesky } from 'react-icons/fa6'
-
-import './footer.scss'
 import Image from 'next/image'
+import MailChimpForm from './MailChimpForm'
+import './footer.scss'
 
 export default function Footer() {
 	return (
@@ -98,7 +98,7 @@ export default function Footer() {
 							</a>
 						</div>
 					</div>
-					{/* <MailChimpForm /> */}
+					<MailChimpForm />
 				</div>
 			</footer>
 			<div className="copy">

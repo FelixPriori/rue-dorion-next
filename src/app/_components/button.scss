@@ -1,17 +1,12 @@
 @use 'sass:color';
 
-.dorion-button-link {
-	border-radius: 0.5rem;
+.dorion-button {
+	border-radius: var(--radius-sm);
 	transition: all 0.3s;
 	font-weight: bold;
 	text-transform: uppercase;
-	letter-spacing: var(--space-xsm);
 	padding: 0.5rem 1rem;
-	white-space: nowrap;
-	display: block;
-	text-align: center;
-	width: fit-content;
-	text-decoration: none;
+	letter-spacing: var(--space-xsm);
 
 	&:hover {
 		cursor: pointer;
