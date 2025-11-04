@@ -1,6 +1,28 @@
 import { Document } from '@contentful/rich-text-types'
 import type { EntryFieldTypes, EntrySys } from 'contentful'
 
+export type AudioTranslation = {
+	sys: EntrySys
+	fields: {
+		word: string
+		traduction: Document
+		audio: {
+			sys: EntrySys
+			fields: {
+				title: string
+				description: Document
+				file: EntryFieldTypes.Asset
+			}
+		}
+	}
+}
+
+export type AudioTranslations = ReadonlyArray<AudioTranslation>
+
+export type AudioTranslationsQueryResult = {
+	items: AudioTranslations
+}
+
 export type PressArticle = {
 	sys: EntrySys
 	fields: {

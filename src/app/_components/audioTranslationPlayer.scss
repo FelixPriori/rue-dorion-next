@@ -1,0 +1,23 @@
+.audio-translation {
+	display: grid;
+	grid-template-columns: 1.5fr 3fr 30rem;
+	gap: 3rem;
+	margin: 4rem 0;
+	&__word {
+		font-size: 1.4rem;
+	}
+	&__audio {
+		margin-left: auto;
+	}
+
+	@media (max-width: 768px) {
+		display: flex;
+		flex-direction: column;
+		padding: 1rem 2rem;
+		gap: 1rem;
+
+		&__audio {
+			width: 100%;
+		}
+	}
+}
