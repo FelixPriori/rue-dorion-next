@@ -18,7 +18,7 @@ export default async function Home() {
 	const books = await getAllContentfulBooks()
 
 	return (
-		<Layout withHero withButtons scrollTopAnchor="#catalogue">
+		<Layout withHero withButtons>
 			<Section sectionId="a-propos" className="about" title="À propos">
 				<p className="home__paragraph">
 					Fondées en 2012, les <strong>Éditions de la rue Dorion</strong>{' '}

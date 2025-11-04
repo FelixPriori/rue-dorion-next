@@ -1,14 +1,9 @@
 'use client'
 import { useState, useEffect, useCallback } from 'react'
-import Link from 'next/link'
 import { FaArrowUp } from 'react-icons/fa'
 import './scrollTop.scss'
 
-export default function ScrollTop({
-	scrollTopAnchor = '#',
-}: {
-	scrollTopAnchor?: string
-}) {
+export default function ScrollTop() {
 	const [isVisible, setIsVisible] = useState(false)
 
 	const listenToScroll = useCallback(() => {
@@ -28,11 +23,20 @@ export default function ScrollTop({
 		return () => window.removeEventListener('scroll', listenToScroll)
 	}, [listenToScroll])
 
+	const handleScrollTop = useCallback(() => {
+		if (window) {
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth',
+			})
+		}
+	}, [])
+
 	return (
 		isVisible && (
-			<Link scroll href={scrollTopAnchor} className="scroll-top">
+			<button onClick={handleScrollTop} className="scroll-top">
 				<FaArrowUp />
-			</Link>
+			</button>
 		)
 	)
 }

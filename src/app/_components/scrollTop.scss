@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 .scroll-top {
 	position: fixed;
 	bottom: 3rem;
@@ -10,15 +12,18 @@
 	width: 5rem;
 	border-radius: 50%;
 	border: 0.1rem solid #cdcdcd;
+	cursor: pointer;
 
 	svg {
 		color: #cdcdcd;
+		width: 50%;
+		height: 50%;
 	}
 
 	&:hover {
-		border: 0.1rem solid darken(#cdcdcd, 20%);
+		border: 0.1rem solid color.adjust(#cdcdcd, $lightness: -20%);
 		svg {
-			color: darken(#cdcdcd, 20%);
+			color: color.adjust(#cdcdcd, $lightness: -20%);
 		}
 	}
 }

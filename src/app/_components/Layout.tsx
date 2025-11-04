@@ -15,11 +15,10 @@ export default function Layout({
 	withHero,
 	withButtons,
 	children,
-	scrollTopAnchor,
 }: LayoutProps) {
 	return (
 		<>
-			<ScrollTop scrollTopAnchor={scrollTopAnchor} />
+			<ScrollTop />
 			{withHero ? (
 				<Hero>
 					<Header withButtons={withButtons} />
