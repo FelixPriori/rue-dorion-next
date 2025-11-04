@@ -12,6 +12,7 @@ import BookDetails from '../_components/BookDetails'
 import PressArticle from '../_components/PressArticle'
 import BookList from '../_components/BookList'
 import { uniqBy } from 'lodash'
+import { notFound } from 'next/navigation'
 
 const client = createClient({
 	space: process.env.SPACE_ID!,
@@ -59,6 +60,11 @@ export default async function BookPage({
 	const { slug } = await params
 
 	const book = await getContentfulBook(slug)
+
+	if (!book) {
+		return notFound()
+	}
+
 	const bookFields = book.fields
 
 	const uniqueBooks = uniqBy(bookFields?.book, 'fields.slug').slice(0, 4)
