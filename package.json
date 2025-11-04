@@ -11,7 +11,6 @@
   "dependencies": {
     "@contentful/rich-text-react-renderer": "^16.1.5",
     "@mailchimp/mailchimp_marketing": "^3.0.80",
-    "@types/mailchimp__mailchimp_marketing": "^3.0.21",
     "contentful": "^11.8.9",
     "lodash": "^4.17.21",
     "next": "16.0.1",
@@ -23,6 +22,7 @@
   "devDependencies": {
     "@contentful/rich-text-types": "^17.2.4",
     "@types/lodash": "^4.17.20",
+    "@types/mailchimp__mailchimp_marketing": "^3.0.21",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
