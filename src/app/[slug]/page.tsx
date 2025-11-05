@@ -30,13 +30,14 @@ const getContentfulBook = async (slug: string): Promise<BookItem> => {
 	return queryResult.items[0] as unknown as BookItem
 }
 
-export async function generateMetadata(
-	params: Promise<{ slug: string }>,
-): Promise<Metadata> {
+export async function generateMetadata({
+	params,
+}: {
+	params: Promise<{ slug: string }>
+}): Promise<Metadata> {
 	const { slug } = await params
 
 	const { fields } = await getContentfulBook(slug)
-
 	return {
 		title: fields.title,
 		description: fields.descriptionSeo,
