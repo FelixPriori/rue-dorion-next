@@ -5,9 +5,12 @@
 		width: 100%;
 	}
 
+	.corniche {
+		object-fit: cover;
+	}
+
 	@media (max-width: 768px) {
 		.corniche {
-			object-position: cover;
 			z-index: -2;
 		}
 
