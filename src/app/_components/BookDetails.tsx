@@ -37,9 +37,9 @@ function BookDetails({
 					height={512}
 				/>
 			</li>
-			<div className="main__title-wrapper">
-				<h1 className="main__title">{title}</h1>
-				<h2 className="main__subtitle">{subtitle}</h2>
+			<div className="book-details__title-wrapper">
+				<h1 className="book-details__title">{title}</h1>
+				<h2 className="book-details__subtitle">{subtitle}</h2>
 			</div>
 			<li>
 				<h2 className="book-details__author">{author}</h2>
