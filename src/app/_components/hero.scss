@@ -12,6 +12,7 @@
 	@media (max-width: 768px) {
 		.corniche {
 			z-index: -2;
+			max-height: 75vh;
 		}
 
 		&:before {
