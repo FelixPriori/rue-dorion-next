@@ -19,6 +19,7 @@ export default function FloatingInput({
 	return (
 		<div className="floating-input">
 			<input
+				id={name}
 				className={`floating-input__input ${className}`}
 				name={name}
 				type={type}
