@@ -10,7 +10,7 @@ function PressArticle({ title, content }: PressArticleType['fields']) {
 	const [maxHeight, setMaxHeight] = useState(0)
 
 	const toggle = () => {
-		setMaxHeight(isOpen ? 0 : 500)
+		setMaxHeight(isOpen ? 0 : 5000)
 		setIsOpen(prev => !prev)
 	}
 
