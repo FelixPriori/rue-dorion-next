@@ -90,7 +90,7 @@ function BookDetails({
 			{isPublished && (
 				<li>
 					<ButtonLink external to={linkToStore} mode="dark-outline">
-						Acheter sur le pressier
+						Acheter sur en ligne
 					</ButtonLink>
 				</li>
 			)}
