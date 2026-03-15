@@ -1,5 +1,5 @@
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
-import { BookItem } from '../_types/types'
+import { BookItem, BookQueryResult } from '../_types/types'
 import { createClient } from 'contentful'
 import { Metadata } from 'next'
 import Section from '../_components/Section'
@@ -30,6 +30,16 @@ const getContentfulBook = async (slug: string): Promise<BookItem> => {
 	return queryResult.items[0] as unknown as BookItem
 }
 
+const getAllContentfulBooks = async () => {
+	const entries = await client.getEntries({ content_type: 'book' })
+	return entries as unknown as BookQueryResult
+}
+
+export async function generateStaticParams() {
+	const books = await getAllContentfulBooks()
+	return books.items.map(book => ({ slug: book.fields.slug }))
+}
+
 export async function generateMetadata({
 	params,
 }: {
@@ -38,17 +48,25 @@ export async function generateMetadata({
 	const { slug } = await params
 
 	const { fields } = await getContentfulBook(slug)
+	const coverUrl = `https:${fields.cover.fields.file.url}`
 	return {
 		title: fields.title,
 		description: fields.descriptionSeo,
+		alternates: {
+			canonical: `https://ruedorion.ca/${slug}`,
+		},
 		openGraph: {
 			title: fields.title,
 			description: fields.descriptionSeo,
-			images: [
-				{
-					url: new URL(`https:${fields.cover.fields.file.url}`),
-				},
-			],
+			url: `https://ruedorion.ca/${slug}`,
+			type: 'book',
+			images: [{ url: coverUrl }],
+		},
+		twitter: {
+			card: 'summary_large_image',
+			title: fields.title,
+			description: fields.descriptionSeo,
+			images: [coverUrl],
 		},
 	}
 }
@@ -70,8 +88,29 @@ export default async function BookPage({
 
 	const uniqueBooks = uniqBy(bookFields?.book, 'fields.slug').slice(0, 4)
 
+	const jsonLd = {
+		'@context': 'https://schema.org',
+		'@type': 'Book',
+		name: bookFields.title,
+		author: { '@type': 'Person', name: bookFields.author },
+		isbn: bookFields.isbnPaper,
+		inLanguage: 'fr',
+		publisher: {
+			'@type': 'Organization',
+			name: 'Les éditions de la rue Dorion',
+			url: 'https://ruedorion.ca',
+		},
+		url: `https://ruedorion.ca/${bookFields.slug}`,
+		image: `https:${bookFields.cover.fields.file.url}`,
+		...(bookFields.descriptionSeo && { description: bookFields.descriptionSeo }),
+	}
+
 	return (
 		<Layout>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+			/>
 			<Section className="main" noPaddingTop>
 				<Link href="/#catalogue" className="main__back">
 					<FaArrowLeft />

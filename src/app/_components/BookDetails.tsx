@@ -38,8 +38,8 @@ function BookDetails({
 				/>
 			</li>
 			<div className="book-details__title-wrapper">
-				<h1 className="book-details__title">{title}</h1>
-				<h2 className="book-details__subtitle">{subtitle}</h2>
+				<p className="book-details__title">{title}</p>
+				<p className="book-details__subtitle">{subtitle}</p>
 			</div>
 			<li>
 				<h2 className="book-details__author">{author}</h2>

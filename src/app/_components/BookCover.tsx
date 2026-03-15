@@ -10,7 +10,7 @@ export default function BookCover({ cover, slug, title }: BookItem['fields']) {
 				{cover ? (
 					<Image
 						src={`https:${cover.fields.file.url}`}
-						alt={`Lien vers la page de ${title}`}
+						alt={`Couverture de ${title}`}
 						width={512}
 						height={512}
 					/>

@@ -19,7 +19,11 @@ export default function Header({ withButtons }: HeaderProps) {
 					height={512}
 				/>
 			</Link>
-			<h1 className="header__title">Les éditions de la rue Dorion</h1>
+			{withButtons ? (
+				<h1 className="header__title">Les éditions de la rue Dorion</h1>
+			) : (
+				<p className="header__title">Les éditions de la rue Dorion</p>
+			)}
 			{withButtons && (
 				<div className="header__buttons">
 					<ButtonLink to="/#a-propos" mode="dark">

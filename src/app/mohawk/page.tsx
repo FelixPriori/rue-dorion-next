@@ -19,18 +19,26 @@ const getAllContentfulAudioTranslations = async () => {
 }
 
 export const metadata: Metadata = {
-	title: 'Guide de prononciation',
+	title: 'Guide de prononciation Mohawk',
 	description:
 		'Glossaire et prononciation des mots en Mohawk | Glossary and pronounciation of mohawk words',
+	alternates: {
+		canonical: 'https://ruedorion.ca/mohawk',
+	},
 	openGraph: {
-		title: 'Guide de prononciation',
+		title: 'Guide de prononciation Mohawk',
 		description:
 			'Glossaire et prononciation des mots en Mohawk | Glossary and pronounciation of mohawk words',
-		images: [
-			{
-				url: 'https://ruedorion.ca/static/e68198f347c77dee4d10cdbb83753da9/2b6ca/haniehtiio-16x9.webp',
-			},
-		],
+		url: 'https://ruedorion.ca/mohawk',
+		type: 'website',
+		images: [{ url: '/haniehtiio-16x9.jpg' }],
+	},
+	twitter: {
+		card: 'summary_large_image',
+		title: 'Guide de prononciation Mohawk',
+		description:
+			'Glossaire et prononciation des mots en Mohawk | Glossary and pronounciation of mohawk words',
+		images: ['/haniehtiio-16x9.jpg'],
 	},
 }
 
