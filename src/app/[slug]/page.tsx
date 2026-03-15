@@ -86,7 +86,7 @@ export default async function BookPage({
 
 	const bookFields = book.fields
 
-	const uniqueBooks = uniqBy(bookFields?.book, 'fields.slug').slice(0, 4)
+	const uniqueBooks = uniqBy(bookFields?.book?.filter(b => b.fields?.slug), 'fields.slug').slice(0, 4)
 
 	const jsonLd = {
 		'@context': 'https://schema.org',
